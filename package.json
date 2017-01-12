@@ -1,0 +1,32 @@
+{
+  "name": "check-mail",
+  "version": "0.0.0",
+  "description": "Chess by email",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "node_modules/.bin/eslint .",
+    "lint:fix": "node_modules/.bin/eslint --fix ."
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrans/check-mail.git"
+  },
+  "keywords": [
+    "chess",
+    "redsift",
+    "sift"
+  ],
+  "author": "jrans",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jrans/check-mail/issues"
+  },
+  "homepage": "https://github.com/jrans/check-mail#readme",
+  "devDependencies": {
+    "eslint": "^3.13.1",
+    "pre-commit": "^1.2.2"
+  }
+}
