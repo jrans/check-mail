@@ -8,21 +8,20 @@ export default class MyEmailClientController extends EmailClientController {
     super();
   }
 
-  // for more info: http://docs.redsift.com/docs/client-code-redsiftclient
-  loadThreadListView (listInfo) {
-    console.log('check-mail: loadThreadListView: ', listInfo);
-    // if (listInfo) {
-    //   return {
-    //     template: '001_list_common_txt',
-    //     value: {
-    //       color: '#ffffff',
-    //       backgroundColor: '#e11010',
-    //       subtitle: 'subtitle'
-    //     }
-    //   };
-    // }
+  loadThreadListView (game) {
+    if (game) {
+      return {
+        template: '003_list_common_img',
+        value: {
+          image: { url: game.gameOver
+            ? 'assets/chess_game_over.png'
+            : game.check ? 'assets/chess_check.png' : 'assets/chess_active.png'
+          },
+          subtitle: game.fen
+        }
+      };
+    }
   }
 }
 
-// Do not remove. The Sift is responsible for registering its views and controllers
 registerEmailClientController(new MyEmailClientController());
