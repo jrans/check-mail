@@ -2,7 +2,7 @@
   "name": "check-mail",
   "display-name": "Check Mail",
   "description": "Chess by email.",
-  "author": "",
+  "author": "jrans",
   "version": "1.0.0",
   "icon": "assets/blueprint.svg",
   "interfaces": {
@@ -20,27 +20,69 @@
   },
   "dag": {
     "inputs":{
-      "emails": {},
-      "slack-bot": {},
-      "webhooks": {}
+      "emails":{
+        "chessEmails":{
+          "filter":{
+            "conditions":[{
+              "subject": {
+                "regexp": {
+                  "flags": "i",
+                  "pattern": "check mail"
+                }
+              }
+            }],
+            "operator": "AND"
+          },
+          "wants": [
+            "archive",
+            "textBody",
+            "strippedHtmlBody"
+          ]
+        }
+      }
     },
-    "nodes":[{
-      "#": "First Node",
-      "implementation": {
-        "javascript": "server/node1.js",
-        "when":{
-          "interval": 900
+    "nodes": [
+      {
+        "#": "Messages mapper",
+        "implementation": {
+          "javascript": "server/message_map.js"
+        },
+        "input": {
+          "bucket": "chessEmails"
+        },
+        "outputs": {
+          "turns": {}
         }
       },
-      "outputs": {
-        "output1": {}
+      {
+        "#": "Chess notation",
+        "implementation": {
+          "javascript": "server/chess.js"
+        },
+        "input": {
+          "bucket": "turns",
+          "select": "/*"
+        },
+        "outputs": {
+          "games": {},
+          "threads": {}
+        }
       }
-    }],
-    "stores":{
-      "output1" : {
-        "key$schema":"string"
+    ],
+    "outputs": {
+      "exports": {
+        "games" : {
+          "key$schema":"string"
+        },
+        "threads": {
+          "import": "_email.tid"
+        }
       }
     },
-    "outputs":{}
+    "stores": {
+      "turns": {
+        "key$schema": "string/string"
+      }
+    }
   }
 }

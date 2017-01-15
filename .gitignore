@@ -16,6 +16,8 @@ server/site-packages/
 # Node
 node_modules/
 
+*.log
+
 # Python
 *.pyc
 
