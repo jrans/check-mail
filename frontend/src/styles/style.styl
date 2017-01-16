@@ -21,9 +21,13 @@ body, html {
 .detail-content
   height: 100%;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 
 
 .detail-content > *
   user-select: none;
+
+.detail-footer
+  flex-direction: row;

@@ -10,6 +10,7 @@ export default class DetailView extends SiftView {
 
   presentView(got) {
     this.updateView(got.data);
+    document.getElementById('detail-reset').onclick = this.resetPosition.bind(this);
   }
 
   recalc(got) {
@@ -18,12 +19,18 @@ export default class DetailView extends SiftView {
 
   updateView(position){
     if (position) {
-      ChessBoard('detail-board', {
+      this.chessBoard = ChessBoard('detail-board', {
         position,
         draggable: true,
-        dropOffBoard: 'trash'
+        dropOffBoard: 'trash',
+        onDrop: console.log
       });
+      this.startPosition = position;
     }
+  }
+
+  resetPosition() {
+    this.chessBoard.position(this.startPosition);
   }
 }
 
