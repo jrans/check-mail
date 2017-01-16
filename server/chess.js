@@ -19,7 +19,7 @@ module.exports = function (got) {
     {
       name: 'threads',
       key: threadId,
-      value: { list: { gameOver, check, fen } }
+      value: { list: { gameOver, check, fen }, detail: fen }
     }
   ];
 };

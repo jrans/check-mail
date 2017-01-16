@@ -9,6 +9,10 @@ var mainJS = [
     indexFile: './src/scripts/view.js' // the index file
   },
   {
+    name: 'detail',
+    indexFile: './src/scripts/detail.js'
+  },
+  {
     name: 'controller',
     indexFile: './src/scripts/controller.js'
   },

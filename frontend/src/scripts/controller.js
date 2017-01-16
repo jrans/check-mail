@@ -18,8 +18,8 @@ export default class MyController extends SiftController {
     switch (state.type) {
       case 'email-thread':
         return {
-          html: 'email-thread.html',
-          data: {}
+          html: 'detail.html',
+          data: state.params.detail
         };
       case 'summary':
         return {

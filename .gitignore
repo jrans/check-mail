@@ -22,3 +22,4 @@ node_modules/
 *.pyc
 
 frontend/public/dist/
+frontend/public/chessboardjs-0.3.0/
