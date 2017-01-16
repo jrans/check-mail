@@ -2,14 +2,32 @@
  * Sample Sift Stylus
  */
 @import "@redsift/ui-rs-core/dist/css/ui-rs-core.min.css"
+@import "@redsift/ui-rs-hero/dist/css/ui-rs-hero.min.css"
 
 body, html {
   height: 100%;
 }
 
-.column {
+.-bg-chess {
+  background-image: url('http://voofoo.games/wp-content/uploads/2014/05/Williams_PS_011.jpg');
+  background-color: rgb(42, 24, 22);
+}
+
+.content__container {
+  padding: 2em;
+  min-height: 2000px;
+}
+
+.detail-content
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2em;
-}
+  justify-content: space-around;
+
+
+.detail-content > *
+  user-select: none;
+
+.detail-footer
+  flex-direction: row;

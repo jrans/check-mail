@@ -16,5 +16,10 @@ server/site-packages/
 # Node
 node_modules/
 
+*.log
+
 # Python
 *.pyc
+
+frontend/public/dist/
+frontend/public/chessboardjs-0.3.0/
