@@ -20,5 +20,3 @@ node_modules/
 
 # Python
 *.pyc
-
-frontend/public/dist/
