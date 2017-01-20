@@ -18,7 +18,7 @@ body, html {
   min-height: 2000px;
 }
 
-.detail-content
+.detail
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -26,8 +26,18 @@ body, html {
   justify-content: space-around;
 
 
-.detail-content > *
+.detail > *
   user-select: none;
 
-.detail-footer
+.detail--footer
   flex-direction: row;
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+
+.detail--planned
+  user-select: all;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 0;
